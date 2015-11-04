@@ -1,0 +1,770 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 41943040 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2756), pid=7490, tid=140433975666432
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_80-b15) (build 1.7.0_80-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.80-b11 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fb950065800):  VMThread [stack: 0x00007fb9552be000,0x00007fb9553bf000] [id=7495]
+
+Stack: [0x00007fb9552be000,0x00007fb9553bf000],  sp=0x00007fb9553bd340,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x9a320a]  VMError::report_and_die()+0x2ea
+V  [libjvm.so+0x498d3b]  report_vm_out_of_memory(char const*, int, unsigned long, char const*)+0x9b
+V  [libjvm.so+0x82191e]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0xfe
+V  [libjvm.so+0x821e69]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x81bb6a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x88d623]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x88e9f8]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x88db62]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x88af1d]  PSScavenge::invoke_no_policy()+0xf3d
+V  [libjvm.so+0x88b761]  PSScavenge::invoke()+0x41
+V  [libjvm.so+0x843f40]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x70
+V  [libjvm.so+0x9a4a97]  VM_ParallelGCFailedAllocation::doit()+0x97
+V  [libjvm.so+0x9abf35]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0x9aa2fa]  VMThread::evaluate_operation(VM_Operation*)+0xba
+V  [libjvm.so+0x9aa67e]  VMThread::loop()+0x1ce
+V  [libjvm.so+0x9aaaf0]  VMThread::run()+0x70
+V  [libjvm.so+0x8238c8]  java_start(Thread*)+0x108
+
+VM_Operation (0x00007fb94994a970): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x00007fb914009800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000000b25800 JavaThread "process reaper" daemon [_thread_blocked, id=7517, stack(0x00007fb9494a0000,0x00007fb9494d9000)]
+  0x0000000000a51800 JavaThread "File lock request listener" [_thread_in_native, id=7515, stack(0x00007fb9495db000,0x00007fb9496dc000)]
+  0x000000000085b800 JavaThread "Stdin handler" [_thread_blocked, id=7514, stack(0x00007fb949747000,0x00007fb949848000)]
+  0x00007fb914009800 JavaThread "Daemon worker" [_thread_blocked, id=7511, stack(0x00007fb94984f000,0x00007fb949950000)]
+  0x00007fb914007800 JavaThread "Cancel handler" [_thread_blocked, id=7510, stack(0x00007fb949950000,0x00007fb949a51000)]
+  0x00007fb914007000 JavaThread "Handler for socket connection from /127.0.0.1:60285 to /127.0.0.1:46645" [_thread_in_native, id=7509, stack(0x00007fb949a51000,0x00007fb949b52000)]
+  0x00007fb920026000 JavaThread "Daemon" [_thread_blocked, id=7508, stack(0x00007fb949b52000,0x00007fb949c53000)]
+  0x00007fb950abe000 JavaThread "Incoming local TCP Connector on port 60285" [_thread_in_native, id=7507, stack(0x00007fb949c53000,0x00007fb949d54000)]
+  0x00007fb950094800 JavaThread "Service Thread" daemon [_thread_blocked, id=7501, stack(0x00007fb9545d6000,0x00007fb9546d7000)]
+  0x00007fb950092800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7500, stack(0x00007fb9546d7000,0x00007fb9547d8000)]
+  0x00007fb95008f800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=7499, stack(0x00007fb9547d8000,0x00007fb9548d9000)]
+  0x00007fb95008d000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=7498, stack(0x00007fb9548d9000,0x00007fb9549da000)]
+  0x00007fb95006c000 JavaThread "Finalizer" daemon [_thread_blocked, id=7497, stack(0x00007fb9550bc000,0x00007fb9551bd000)]
+  0x00007fb95006a000 JavaThread "Reference Handler" daemon [_thread_blocked, id=7496, stack(0x00007fb9551bd000,0x00007fb9552be000)]
+  0x00007fb95000a000 JavaThread "main" [_thread_blocked, id=7492, stack(0x00007fb95961c000,0x00007fb95971d000)]
+
+Other Threads:
+=>0x00007fb950065800 VMThread [stack: 0x00007fb9552be000,0x00007fb9553bf000] [id=7495]
+  0x00007fb95009f000 WatcherThread [stack: 0x00007fb9544d5000,0x00007fb9545d6000] [id=7502]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fb9500065b0] Threads_lock - owner thread: 0x00007fb950065800
+[0x00007fb950006ab0] Heap_lock - owner thread: 0x00007fb914009800
+
+Heap
+ PSYoungGen      total 105984K, used 592K [0x00000000eaa80000, 0x00000000f1600000, 0x0000000100000000)
+  eden space 101888K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000f0e00000)
+  from space 4096K, 14% used [0x00000000f0e00000,0x00000000f0e94010,0x00000000f1200000)
+  to   space 4096K, 0% used [0x00000000f1200000,0x00000000f1200000,0x00000000f1600000)
+ ParOldGen       total 20992K, used 15060K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 71% used [0x00000000c0000000,0x00000000c0eb50b8,0x00000000c1480000)
+ PSPermGen       total 23040K, used 22821K [0x00000000b0000000, 0x00000000b1680000, 0x00000000c0000000)
+  object space 23040K, 99% used [0x00000000b0000000,0x00000000b16495c8,0x00000000b1680000)
+
+Card table byte_map: [0x00007fb956687000,0x00007fb956908000] byte_map_base: 0x00007fb956107000
+
+Polling page: 0x00007fb959738000
+
+Code Cache  [0x00007fb94d000000, 0x00007fb94d280000, 0x00007fb950000000)
+ total_blobs=939 nmethods=376 adapters=516 free_code_cache=46745Kb largest_free_block=47744832
+
+Compilation events (10 events):
+Event: 11.906 Thread 0x00007fb950092800 nmethod 415 0x00007fb94d085190 code [0x00007fb94d0852e0, 0x00007fb94d085378]
+Event: 11.906 Thread 0x00007fb950092800  416             org.codehaus.groovy.ast.ClassNode::getNameWithoutPackage (30 bytes)
+Event: 11.909 Thread 0x00007fb950092800 nmethod 416 0x00007fb94d0c8790 code [0x00007fb94d0c8900, 0x00007fb94d0c8b58]
+Event: 11.909 Thread 0x00007fb950092800  417             org.codehaus.groovy.control.ClassNodeResolver::resolveName (73 bytes)
+Event: 11.931 Thread 0x00007fb950092800 nmethod 417 0x00007fb94d249c50 code [0x00007fb94d249ea0, 0x00007fb94d24a970]
+Event: 11.931 Thread 0x00007fb950092800  418             org.codehaus.groovy.control.ClassNodeResolver::getFromClassCache (16 bytes)
+Event: 12.029 Thread 0x00007fb950092800 nmethod 418 0x00007fb94d0dfc10 code [0x00007fb94d0dfd80, 0x00007fb94d0e0188]
+Event: 12.029 Thread 0x00007fb950092800  419             com.google.common.collect.MapMakerInternalMap$Segment::getEntry (80 bytes)
+Event: 12.037 Thread 0x00007fb950092800 nmethod 419 0x00007fb94d2254d0 code [0x00007fb94d225640, 0x00007fb94d225878]
+Event: 12.508 Thread 0x00007fb950092800  420             com.google.common.collect.MapMakerInternalMap$Segment::expand (282 bytes)
+
+GC Heap History (10 events):
+Event: 8.847 GC heap after
+Heap after GC invocations=18 (full 0):
+ PSYoungGen      total 55808K, used 2362K [0x00000000eaa80000, 0x00000000ee500000, 0x0000000100000000)
+  eden space 51712K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000edd00000)
+  from space 4096K, 57% used [0x00000000ee100000,0x00000000ee34eb38,0x00000000ee500000)
+  to   space 4096K, 0% used [0x00000000edd00000,0x00000000edd00000,0x00000000ee100000)
+ ParOldGen       total 20992K, used 10168K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 48% used [0x00000000c0000000,0x00000000c09ee068,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22179K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15a8e00,0x00000000b1600000)
+}
+Event: 9.444 GC heap before
+{Heap before GC invocations=19 (full 0):
+ PSYoungGen      total 55808K, used 54074K [0x00000000eaa80000, 0x00000000ee500000, 0x0000000100000000)
+  eden space 51712K, 100% used [0x00000000eaa80000,0x00000000edd00000,0x00000000edd00000)
+  from space 4096K, 57% used [0x00000000ee100000,0x00000000ee34eb38,0x00000000ee500000)
+  to   space 4096K, 0% used [0x00000000edd00000,0x00000000edd00000,0x00000000ee100000)
+ ParOldGen       total 20992K, used 10168K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 48% used [0x00000000c0000000,0x00000000c09ee068,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22288K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c41c0,0x00000000b1600000)
+Event: 9.454 GC heap after
+Heap after GC invocations=19 (full 0):
+ PSYoungGen      total 55808K, used 976K [0x00000000eaa80000, 0x00000000ef980000, 0x0000000100000000)
+  eden space 51712K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000edd00000)
+  from space 4096K, 23% used [0x00000000edd00000,0x00000000eddf4010,0x00000000ee100000)
+  to   space 4096K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000ef980000)
+ ParOldGen       total 20992K, used 11492K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 54% used [0x00000000c0000000,0x00000000c0b390f8,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22288K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c41c0,0x00000000b1600000)
+}
+Event: 9.795 GC heap before
+{Heap before GC invocations=20 (full 0):
+ PSYoungGen      total 55808K, used 52688K [0x00000000eaa80000, 0x00000000ef980000, 0x0000000100000000)
+  eden space 51712K, 100% used [0x00000000eaa80000,0x00000000edd00000,0x00000000edd00000)
+  from space 4096K, 23% used [0x00000000edd00000,0x00000000eddf4010,0x00000000ee100000)
+  to   space 4096K, 0% used [0x00000000ef580000,0x00000000ef580000,0x00000000ef980000)
+ ParOldGen       total 20992K, used 11492K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 54% used [0x00000000c0000000,0x00000000c0b390f8,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22290K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c4a60,0x00000000b1600000)
+Event: 9.813 GC heap after
+Heap after GC invocations=20 (full 0):
+ PSYoungGen      total 76800K, used 224K [0x00000000eaa80000, 0x00000000ef980000, 0x0000000100000000)
+  eden space 72704K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000ef180000)
+  from space 4096K, 5% used [0x00000000ef580000,0x00000000ef5b8000,0x00000000ef980000)
+  to   space 4096K, 0% used [0x00000000ef180000,0x00000000ef180000,0x00000000ef580000)
+ ParOldGen       total 20992K, used 12372K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 58% used [0x00000000c0000000,0x00000000c0c15128,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22290K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c4a60,0x00000000b1600000)
+}
+Event: 10.632 GC heap before
+{Heap before GC invocations=21 (full 0):
+ PSYoungGen      total 76800K, used 72928K [0x00000000eaa80000, 0x00000000ef980000, 0x0000000100000000)
+  eden space 72704K, 100% used [0x00000000eaa80000,0x00000000ef180000,0x00000000ef180000)
+  from space 4096K, 5% used [0x00000000ef580000,0x00000000ef5b8000,0x00000000ef980000)
+  to   space 4096K, 0% used [0x00000000ef180000,0x00000000ef180000,0x00000000ef580000)
+ ParOldGen       total 20992K, used 12372K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 58% used [0x00000000c0000000,0x00000000c0c15128,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22302K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c78f8,0x00000000b1600000)
+Event: 10.639 GC heap after
+Heap after GC invocations=21 (full 0):
+ PSYoungGen      total 76800K, used 608K [0x00000000eaa80000, 0x00000000f1600000, 0x0000000100000000)
+  eden space 72704K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000ef180000)
+  from space 4096K, 14% used [0x00000000ef180000,0x00000000ef218010,0x00000000ef580000)
+  to   space 4096K, 0% used [0x00000000f1200000,0x00000000f1200000,0x00000000f1600000)
+ ParOldGen       total 20992K, used 12548K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 59% used [0x00000000c0000000,0x00000000c0c41128,0x00000000c1480000)
+ PSPermGen       total 22528K, used 22302K [0x00000000b0000000, 0x00000000b1600000, 0x00000000c0000000)
+  object space 22528K, 98% used [0x00000000b0000000,0x00000000b15c78f8,0x00000000b1600000)
+}
+Event: 11.516 GC heap before
+{Heap before GC invocations=22 (full 0):
+ PSYoungGen      total 76800K, used 73312K [0x00000000eaa80000, 0x00000000f1600000, 0x0000000100000000)
+  eden space 72704K, 100% used [0x00000000eaa80000,0x00000000ef180000,0x00000000ef180000)
+  from space 4096K, 14% used [0x00000000ef180000,0x00000000ef218010,0x00000000ef580000)
+  to   space 4096K, 0% used [0x00000000f1200000,0x00000000f1200000,0x00000000f1600000)
+ ParOldGen       total 20992K, used 12548K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 59% used [0x00000000c0000000,0x00000000c0c41128,0x00000000c1480000)
+ PSPermGen       total 23040K, used 22821K [0x00000000b0000000, 0x00000000b1680000, 0x00000000c0000000)
+  object space 23040K, 99% used [0x00000000b0000000,0x00000000b16495c8,0x00000000b1680000)
+Event: 11.587 GC heap after
+Heap after GC invocations=22 (full 0):
+ PSYoungGen      total 105984K, used 2483K [0x00000000eaa80000, 0x00000000f1600000, 0x0000000100000000)
+  eden space 101888K, 0% used [0x00000000eaa80000,0x00000000eaa80000,0x00000000f0e00000)
+  from space 4096K, 60% used [0x00000000f1200000,0x00000000f146cc80,0x00000000f1600000)
+  to   space 4096K, 0% used [0x00000000f0e00000,0x00000000f0e00000,0x00000000f1200000)
+ ParOldGen       total 20992K, used 13108K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 62% used [0x00000000c0000000,0x00000000c0ccd1b8,0x00000000c1480000)
+ PSPermGen       total 23040K, used 22821K [0x00000000b0000000, 0x00000000b1680000, 0x00000000c0000000)
+  object space 23040K, 99% used [0x00000000b0000000,0x00000000b16495c8,0x00000000b1680000)
+}
+Event: 12.778 GC heap before
+{Heap before GC invocations=23 (full 0):
+ PSYoungGen      total 105984K, used 104371K [0x00000000eaa80000, 0x00000000f1600000, 0x0000000100000000)
+  eden space 101888K, 100% used [0x00000000eaa80000,0x00000000f0e00000,0x00000000f0e00000)
+  from space 4096K, 60% used [0x00000000f1200000,0x00000000f146cc80,0x00000000f1600000)
+  to   space 4096K, 0% used [0x00000000f0e00000,0x00000000f0e00000,0x00000000f1200000)
+ ParOldGen       total 20992K, used 13108K [0x00000000c0000000, 0x00000000c1480000, 0x00000000eaa80000)
+  object space 20992K, 62% used [0x00000000c0000000,0x00000000c0ccd1b8,0x00000000c1480000)
+ PSPermGen       total 23040K, used 22821K [0x00000000b0000000, 0x00000000b1680000, 0x00000000c0000000)
+  object space 23040K, 99% used [0x00000000b0000000,0x00000000b16495c8,0x00000000b1680000)
+
+Deoptimization events (10 events):
+Event: 9.821 Thread 0x00007fb914009800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007fb94d1fb930 method=org.codehaus.groovy.control.ResolveVisitor.resolveNestedClass(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 113
+Event: 9.821 Thread 0x00007fb914009800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007fb94d1f7c5c method=org.codehaus.groovy.control.ResolveVisitor.resolveFromCompileUnit(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 16
+Event: 9.821 Thread 0x00007fb914009800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb94d1fa9c4 method=org.codehaus.groovy.ast.ClassNode.getCompileUnit()Lorg/codehaus/groovy/ast/CompileUnit; @ 26
+Event: 9.821 Thread 0x00007fb914009800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb94d0e13a0 method=org.codehaus.groovy.ast.ClassNode.redirect()Lorg/codehaus/groovy/ast/ClassNode; @ 4
+Event: 10.958 Thread 0x00007fb914009800 Uncommon trap: reason=bimorphic action=maybe_recompile pc=0x00007fb94d1f7c5c method=org.codehaus.groovy.control.ResolveVisitor.resolveFromCompileUnit(Lorg/codehaus/groovy/ast/ClassNode;)Z @ 16
+Event: 11.158 Thread 0x00007fb914009800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb94d073958 method=java.util.AbstractList.listIterator()Ljava/util/ListIterator; @ 2
+Event: 11.216 Thread 0x00007fb914009800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb94d0b5704 method=java.lang.ref.ReferenceQueue.poll()Ljava/lang/ref/Reference; @ 4
+Event: 11.268 Thread 0x00007fb914009800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb94d073958 method=java.util.AbstractList.listIterator()Ljava/util/ListIterator; @ 2
+Event: 11.359 Thread 0x00007fb914009800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007fb94d1f3e8c method=org.codehaus.groovy.ast.ModuleNode.getClasses()Ljava/util/List; @ 4
+Event: 11.380 Thread 0x00007fb914009800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007fb94d073958 method=java.util.AbstractList.listIterator()Ljava/util/ListIterator; @ 2
+
+Internal exceptions (10 events):
+Event: 12.704 Thread 0x00007fb914009800 Threw 0x00000000f0dc7520 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.704 Thread 0x00007fb914009800 Threw 0x00000000f0dc8590 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.704 Thread 0x00007fb914009800 Threw 0x00000000f0dc93d8 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.704 Thread 0x00007fb914009800 Threw 0x00000000f0dd03f0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.704 Thread 0x00007fb914009800 Threw 0x00000000f0de2cb0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.709 Thread 0x00007fb914009800 Threw 0x00000000f0de3c38 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.709 Thread 0x00007fb914009800 Threw 0x00000000f0de4aa8 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.709 Thread 0x00007fb914009800 Threw 0x00000000f0de5a18 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.709 Thread 0x00007fb914009800 Threw 0x00000000f0de6860 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+Event: 12.709 Thread 0x00007fb914009800 Threw 0x00000000f0ded898 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u80/2329/hotspot/src/share/vm/prims/jvm.cpp:1319
+
+Events (10 events):
+Event: 12.682 loading class 0x0000000000e8a7f0 done
+Event: 12.704 loading class 0x0000000000e8a850
+Event: 12.704 loading class 0x0000000000e8a850 done
+Event: 12.704 loading class 0x0000000000e8a850
+Event: 12.704 loading class 0x0000000000e8a850 done
+Event: 12.709 loading class 0x0000000000e8a8b0
+Event: 12.709 loading class 0x0000000000e8a8b0 done
+Event: 12.709 loading class 0x0000000000e8a8b0
+Event: 12.709 loading class 0x0000000000e8a8b0 done
+Event: 12.721 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 fc:01 566534                             /usr/lib/jvm/java-7-oracle/bin/java
+00600000-00601000 rw-p 00000000 fc:01 566534                             /usr/lib/jvm/java-7-oracle/bin/java
+00836000-00e96000 rw-p 00000000 00:00 0                                  [heap]
+b0000000-b1680000 rw-p 00000000 00:00 0 
+b1680000-c0000000 rw-p 00000000 00:00 0 
+c0000000-c1480000 rw-p 00000000 00:00 0 
+c1480000-eaa80000 rw-p 00000000 00:00 0 
+eaa80000-f1600000 rw-p 00000000 00:00 0 
+f3e00000-100000000 rw-p 00000000 00:00 0 
+7fb90c000000-7fb90c021000 rw-p 00000000 00:00 0 
+7fb90c021000-7fb910000000 ---p 00000000 00:00 0 
+7fb914000000-7fb914021000 rw-p 00000000 00:00 0 
+7fb914021000-7fb918000000 ---p 00000000 00:00 0 
+7fb918000000-7fb918021000 rw-p 00000000 00:00 0 
+7fb918021000-7fb91c000000 ---p 00000000 00:00 0 
+7fb91c000000-7fb91c021000 rw-p 00000000 00:00 0 
+7fb91c021000-7fb920000000 ---p 00000000 00:00 0 
+7fb920000000-7fb92002a000 rw-p 00000000 00:00 0 
+7fb92002a000-7fb924000000 ---p 00000000 00:00 0 
+7fb924000000-7fb9256f7000 rw-p 00000000 00:00 0 
+7fb9256f7000-7fb928000000 ---p 00000000 00:00 0 
+7fb928000000-7fb928021000 rw-p 00000000 00:00 0 
+7fb928021000-7fb92c000000 ---p 00000000 00:00 0 
+7fb92c000000-7fb92c021000 rw-p 00000000 00:00 0 
+7fb92c021000-7fb930000000 ---p 00000000 00:00 0 
+7fb930000000-7fb9313ee000 rw-p 00000000 00:00 0 
+7fb9313ee000-7fb934000000 ---p 00000000 00:00 0 
+7fb934000000-7fb934021000 rw-p 00000000 00:00 0 
+7fb934021000-7fb938000000 ---p 00000000 00:00 0 
+7fb938000000-7fb938021000 rw-p 00000000 00:00 0 
+7fb938021000-7fb93c000000 ---p 00000000 00:00 0 
+7fb93c000000-7fb93c021000 rw-p 00000000 00:00 0 
+7fb93c021000-7fb940000000 ---p 00000000 00:00 0 
+7fb940000000-7fb94024f000 rw-p 00000000 00:00 0 
+7fb94024f000-7fb944000000 ---p 00000000 00:00 0 
+7fb944000000-7fb944039000 rw-p 00000000 00:00 0 
+7fb944039000-7fb948000000 ---p 00000000 00:00 0 
+7fb949363000-7fb949364000 rw-p 00000000 00:00 0 
+7fb949364000-7fb949365000 r--p 00000000 fc:01 805198                     /usr/share/locale-langpack/en_GB/LC_MESSAGES/libc.mo
+7fb949365000-7fb949368000 r--s 00024000 08:10 265088                     /media/ohrock/AndroidDevelopme/android-studio/plugins/gradle/lib/gradle-tooling-extension-impl.jar
+7fb949368000-7fb9493d4000 r--s 00696000 08:10 395754                     /media/ohrock/AndroidDevelopme/android-studio/lib/groovy-all-2.3.9.jar
+7fb9493d4000-7fb949499000 r--s 00f4f000 08:10 395691                     /media/ohrock/AndroidDevelopme/android-studio/lib/openapi.jar
+7fb949499000-7fb94949b000 r--s 00005000 08:10 265102                     /media/ohrock/AndroidDevelopme/android-studio/plugins/gradle/lib/gradle-tooling-extension-api.jar
+7fb94949b000-7fb9494a0000 r--s 0002e000 08:10 395635                     /media/ohrock/AndroidDevelopme/android-studio/lib/gson-2.3.jar
+7fb9494a0000-7fb9494a3000 ---p 00000000 00:00 0 
+7fb9494a3000-7fb9494d9000 rw-p 00000000 00:00 0                          [stack:7517]
+7fb9494d9000-7fb9494da000 r--p 00000000 00:00 0 
+7fb9494da000-7fb9494dc000 r--s 00004000 00:1a 828081                     /home/ohrock/.gradle/caches/jars-1/qgow21ac1xf6j3gqqyew3xmfhzwyuwz/builder-model-1.4.0-beta2.jar
+7fb9494dc000-7fb9494dd000 r--s 00000000 00:1a 827885                     /home/ohrock/.gradle/caches/jars-1/dg22azhabc6tsc1i8xni15giz1bnssh/gradle-appengine-builder-model-0.1.0.jar
+7fb9494dd000-7fb9495a2000 r--s 00f4f000 00:1a 827881                     /home/ohrock/.gradle/caches/jars-1/bcq7f46cn0y8eouv8pfefua92hl0w5l/openapi.jar
+7fb9495a2000-7fb9495a4000 r--s 00005000 00:1a 827876                     /home/ohrock/.gradle/caches/jars-1/2rpp8opio1759k0ftrxzya0ig24zhws/gradle-tooling-extension-api.jar
+7fb9495a4000-7fb9495aa000 r--s 00026000 00:1a 827873                     /home/ohrock/.gradle/caches/jars-1/qlb402qqdb9mu9614i3hr843cfch7zw/gradle-base-services-2.2.jar
+7fb9495aa000-7fb9495d2000 r--s 001cf000 00:1a 827871                     /home/ohrock/.gradle/caches/jars-1/87eo0lrvp84r6dbxjq018wy66es2era/guava-jdk5-17.0.jar
+7fb9495d2000-7fb9495db000 r--s 0002c000 00:1a 827869                     /home/ohrock/.gradle/caches/jars-1/ltkluv74baem3ersp41z8rutm6he5v5/gradle-tooling-api-2.2.jar
+7fb9495db000-7fb9495de000 ---p 00000000 00:00 0 
+7fb9495de000-7fb9496dc000 rw-p 00000000 00:00 0                          [stack:7515]
+7fb9496dc000-7fb949747000 r--s 00e21000 fc:01 566430                     /usr/lib/jvm/java-7-oracle/lib/tools.jar
+7fb949747000-7fb94974a000 ---p 00000000 00:00 0 
+7fb94974a000-7fb949848000 rw-p 00000000 00:00 0                          [stack:7514]
+7fb949848000-7fb94984f000 r--s 00000000 fc:01 787370                     /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fb94984f000-7fb949852000 ---p 00000000 00:00 0 
+7fb949852000-7fb949950000 rw-p 00000000 00:00 0                          [stack:7511]
+7fb949950000-7fb949953000 ---p 00000000 00:00 0 
+7fb949953000-7fb949a51000 rw-p 00000000 00:00 0                          [stack:7510]
+7fb949a51000-7fb949a54000 ---p 00000000 00:00 0 
+7fb949a54000-7fb949b52000 rw-p 00000000 00:00 0                          [stack:7509]
+7fb949b52000-7fb949b55000 ---p 00000000 00:00 0 
+7fb949b55000-7fb949c53000 rw-p 00000000 00:00 0                          [stack:7508]
+7fb949c53000-7fb949c56000 ---p 00000000 00:00 0 
+7fb949c56000-7fb949d54000 rw-p 00000000 00:00 0                          [stack:7507]
+7fb949d54000-7fb949d58000 r--s 0008b000 fc:01 565605                     /usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar
+7fb949d58000-7fb949d59000 r--s 00002000 08:10 264931                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-tooling-api-builders-2.4.jar
+7fb949d59000-7fb949d68000 r--s 00081000 08:10 264858                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/joda-time-2.7.jar
+7fb949d68000-7fb949d79000 r--s 000cf000 08:10 264911                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jackson-databind-2.3.2.jar
+7fb949d79000-7fb949d7b000 r--s 00007000 08:10 264934                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jackson-annotations-2.3.2.jar
+7fb949d7b000-7fb949d7e000 r--s 0002e000 08:10 264890                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jackson-core-2.3.2.jar
+7fb949d7e000-7fb949d89000 r--s 0006b000 08:10 264960                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/aws-java-sdk-core-1.9.19.jar
+7fb949d89000-7fb949d8f000 r--s 00036000 08:10 264932                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/aws-java-sdk-kms-1.9.19.jar
+7fb949d8f000-7fb949d9a000 r--s 00079000 08:10 264842                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/aws-java-sdk-s3-1.9.19.jar
+7fb949d9a000-7fb949d9b000 r--s 00003000 08:10 264838                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-resources-s3-2.4.jar
+7fb949d9b000-7fb949d9d000 r--s 00003000 08:10 264861                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-resources-sftp-2.4.jar
+7fb949d9d000-7fb949d9e000 r--s 00001000 08:10 264925                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-plugin-development-2.4.jar
+7fb949d9e000-7fb949d9f000 r--s 00005000 08:10 264875                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-testing-native-2.4.jar
+7fb949d9f000-7fb949da4000 r--s 00036000 08:10 264841                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-ide-native-2.4.jar
+7fb949da4000-7fb949da9000 r--s 0001a000 08:10 264924                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-language-native-2.4.jar
+7fb949da9000-7fb949dae000 r--s 00022000 08:10 264920                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-platform-play-2.4.jar
+7fb949dae000-7fb949dbb000 r--s 00057000 08:10 264859                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-platform-native-2.4.jar
+7fb949dbb000-7fb949dbe000 r--s 00008000 08:10 264865                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-language-scala-2.4.jar
+7fb949dbe000-7fb949dc0000 r--s 00009000 08:10 264933                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-language-groovy-2.4.jar
+7fb949dc0000-7fb949dc6000 r--s 00023000 08:10 264855                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-language-java-2.4.jar
+7fb949dc6000-7fb949dc8000 r--s 00008000 08:10 264912                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-language-jvm-2.4.jar
+7fb949dc8000-7fb949dca000 r--s 00009000 08:10 264891                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-platform-jvm-2.4.jar
+7fb949dca000-7fb949dd1000 r--s 00020000 08:10 264882                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-platform-base-2.4.jar
+7fb949dd1000-7fb949dd5000 r--s 00025000 08:10 264950                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-build-init-2.4.jar
+7fb949dd5000-7fb949dd8000 r--s 0001c000 08:10 264961                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-jacoco-2.4.jar
+7fb949dd8000-7fb949ddb000 r--s 0000e000 08:10 264883                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-ivy-2.4.jar
+7fb949ddb000-7fb949ddd000 r--s 00002000 08:10 264876                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-publish-2.4.jar
+7fb949ddd000-7fb949ddf000 r--s 00005000 08:10 264895                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jatl-0.2.2.jar
+7fb949ddf000-7fb949de1000 r--s 0000f000 08:10 264871                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-reporting-2.4.jar
+7fb949de1000-7fb949de6000 r--s 00036000 08:10 264901                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-diagnostics-2.4.jar
+7fb949de6000-7fb949ded000 r--s 00094000 08:10 264851                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-build-comparison-2.4.jar
+7fb949ded000-7fb949df4000 r--s 00035000 08:10 264910                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/simple-4.1.21.jar
+7fb949df4000-7fb949e00000 r--s 00100000 08:10 264944                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/rhino-1.7R3.jar
+7fb949e00000-7fb949e05000 r--s 0001f000 08:10 264870                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-javascript-2.4.jar
+7fb949e05000-7fb949e07000 r--s 0000e000 08:10 264857                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-ear-2.4.jar
+7fb949e07000-7fb949e0e000 r--s 00038000 08:10 264897                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/bcpg-jdk15on-1.51.jar
+7fb949e0e000-7fb949e11000 r--s 0001d000 08:10 264869                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-signing-2.4.jar
+7fb949e11000-7fb949e12000 r--s 00002000 08:10 264839                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/sonar-batch-bootstrapper-2.9.jar
+7fb949e12000-7fb949e15000 r--s 00019000 08:10 264867                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-sonar-2.4.jar
+7fb949e15000-7fb949e17000 r--s 00013000 08:10 264919                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-scala-2.4.jar
+7fb949e17000-7fb949e18000 r--s 0000e000 08:10 264862                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-announce-2.4.jar
+7fb949e18000-7fb949e25000 r--s 000b9000 08:10 264914                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-ide-2.4.jar
+7fb949e25000-7fb949e27000 r--s 00000000 08:10 264937                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/plexus-component-annotations-1.5.2.jar
+7fb949e27000-7fb949e2a000 r--s 0000c000 08:10 264892                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/pmaven-groovy-0.8-20100325.jar
+7fb949e2a000-7fb949e2b000 r--s 00004000 08:10 264915                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/pmaven-common-0.8-20100325.jar
+7fb949e2b000-7fb949e2d000 r--s 0000b000 08:10 264843                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/wagon-provider-api-1.0-beta-6.jar
+7fb949e2d000-7fb949e2e000 r--s 00003000 08:10 264917                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/wagon-http-lightweight-1.0-beta-6.jar
+7fb949e2e000-7fb949e2f000 r--s 00002000 08:10 264922                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/wagon-file-1.0-beta-6.jar
+7fb949e2f000-7fb949e30000 r--s 0000b000 08:10 264913                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-settings-2.2.1.jar
+7fb949e30000-7fb949e32000 r--s 00002000 08:10 264959                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-error-diagnostics-2.2.1.jar
+7fb949e32000-7fb949e36000 r--s 00023000 08:10 264854                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-project-2.2.1.jar
+7fb949e36000-7fb949e38000 r--s 00014000 08:10 264898                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-model-2.2.1.jar
+7fb949e38000-7fb949e3a000 r--s 00005000 08:10 264909                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-repository-metadata-2.2.1.jar
+7fb949e3a000-7fb949e3c000 r--s 0000f000 08:10 264908                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-artifact-manager-2.2.1.jar
+7fb949e3c000-7fb949e3f000 r--s 00011000 08:10 264874                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/maven-artifact-2.2.1.jar
+7fb949e3f000-7fb949e41000 r--s 0000b000 08:10 264888                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/plexus-interpolation-1.11.jar
+7fb949e41000-7fb949e45000 r--s 00034000 08:10 264880                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/plexus-utils-1.5.15.jar
+7fb949e45000-7fb949e4c000 r--s 00029000 08:10 264885                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/plexus-container-default-1.0-alpha-9-stable-1.jar
+7fb949e4c000-7fb949e4e000 r--s 00008000 08:10 264953                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/classworlds-1.1-alpha-2.jar
+7fb949e4e000-7fb949e53000 r--s 00023000 08:10 264852                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-maven-2.4.jar
+7fb949e53000-7fb949e6b000 r--s 0013b000 08:10 264947                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/bndlib-2.1.0.jar
+7fb949e6b000-7fb949e6d000 r--s 00004000 08:10 264936                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-osgi-2.4.jar
+7fb949e6d000-7fb949e6f000 r--s 00007000 08:10 264956                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-antlr-2.4.jar
+7fb949e6f000-7fb949e72000 r--s 0001e000 08:10 264905                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jsp-api-2.1-6.1.14.jar
+7fb949e72000-7fb949e95000 r--s 00344000 08:10 264938                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/core-3.1.1.jar
+7fb949e95000-7fb949e96000 r--s 00006000 08:10 264962                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jetty-naming-6.1.25.jar
+7fb949e96000-7fb949e98000 r--s 00002000 08:10 264896                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jetty-annotations-6.1.25.jar
+7fb949e98000-7fb949ea9000 r--s 000ea000 08:10 264921                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jsp-2.1-6.1.14.jar
+7fb949ea9000-7fb949eab000 r--s 0000d000 08:10 264860                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jetty-plus-6.1.25.jar
+7fb949eab000-7fb949ead000 r--s 0001f000 08:10 264887                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/servlet-api-2.5-20081211.jar
+7fb949ead000-7fb949eb1000 r--s 00028000 08:10 264840                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jetty-util-6.1.25.jar
+7fb949eb1000-7fb949eb8000 r--s 0007d000 08:10 264926                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jetty-6.1.25.jar
+7fb949eb8000-7fb949eba000 r--s 00009000 08:10 264958                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-jetty-2.4.jar
+7fb949eba000-7fb949ec0000 r--s 00041000 08:10 264945                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-code-quality-2.4.jar
+7fb949ec0000-7fb949ec2000 r--s 00009000 08:10 264884                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/hamcrest-core-1.3.jar
+7fb949ec2000-7fb949ec8000 r--s 00033000 08:10 264928                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/snakeyaml-1.6.jar
+7fb949ec8000-7fb949eca000 r--s 00006000 08:10 264863                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jcommander-1.12.jar
+7fb949eca000-7fb949ecf000 r--s 00040000 08:10 264935                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/bsh-2.0b4.jar
+7fb949ecf000-7fb949ed1000 r--s 00009000 08:10 264850                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/commons-cli-1.2.jar
+7fb949ed1000-7fb949ee7000 r-xp 00000000 fc:01 136178                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb949ee7000-7fb94a0e6000 ---p 00016000 fc:01 136178                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb94a0e6000-7fb94a0e7000 rw-p 00015000 fc:01 136178                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+7fb94a0e7000-7fb94a1cd000 r-xp 00000000 fc:01 536823                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fb94a1cd000-7fb94a3cc000 ---p 000e6000 fc:01 536823                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fb94a3cc000-7fb94a3d4000 r--p 000e5000 fc:01 536823                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fb94a3d4000-7fb94a3d6000 rw-p 000ed000 fc:01 536823                     /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.19
+7fb94a3d6000-7fb94a3eb000 rw-p 00000000 00:00 0 
+7fb94a3eb000-7fb94a3ef000 r-xp 00000000 00:1a 692916                     /home/ohrock/.gradle/native/19/linux-amd64/libnative-platform.so
+7fb94a3ef000-7fb94a5ee000 ---p 00004000 00:1a 692916                     /home/ohrock/.gradle/native/19/linux-amd64/libnative-platform.so
+7fb94a5ee000-7fb94a5ef000 rw-p 00003000 00:1a 692916                     /home/ohrock/.gradle/native/19/linux-amd64/libnative-platform.so
+7fb94a5ef000-7fb94a5ff000 r-xp 00000000 fc:01 565578                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnio.so
+7fb94a5ff000-7fb94a7ff000 ---p 00010000 fc:01 565578                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnio.so
+7fb94a7ff000-7fb94a800000 rw-p 00010000 fc:01 565578                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnio.so
+7fb94a800000-7fb94d000000 rw-p 00000000 00:00 0 
+7fb94d000000-7fb94d280000 rwxp 00000000 00:00 0 
+7fb94d280000-7fb950ad6000 rw-p 00000000 00:00 0 
+7fb950ad6000-7fb954000000 ---p 00000000 00:00 0 
+7fb954000000-7fb954001000 r--s 00002000 08:10 264881                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/geronimo-annotation_1.0_spec-1.0.jar
+7fb954001000-7fb95400a000 r--s 00089000 08:10 264878                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/testng-6.3.1.jar
+7fb95400a000-7fb954012000 r--s 00045000 08:10 264949                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/junit-4.12.jar
+7fb954012000-7fb95401f000 r--s 0007a000 08:10 264889                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-plugins-2.4.jar
+7fb95401f000-7fb954037000 r--s 00115000 08:10 264918                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/xercesImpl-2.9.1.jar
+7fb954037000-7fb95403f000 r--s 00028000 08:10 264899                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/xml-apis-1.3.04.jar
+7fb95403f000-7fb954045000 r--s 0005b000 08:10 264849                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jcifs-1.3.17.jar
+7fb954045000-7fb95404b000 r--s 00031000 08:10 264864                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/httpcore-4.2.2.jar
+7fb95404b000-7fb954051000 r--s 00033000 08:10 264844                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/commons-codec-1.6.jar
+7fb954051000-7fb954054000 r--s 0001c000 08:10 264954                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/nekohtml-1.9.14.jar
+7fb954054000-7fb95405d000 r--s 00060000 08:10 264879                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/httpclient-4.2.2.jar
+7fb95405d000-7fb95405f000 r--s 00007000 08:10 264868                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-resources-http-2.4.jar
+7fb95405f000-7fb954062000 r--s 00010000 08:10 264943                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-plugin-use-2.4.jar
+7fb954062000-7fb954066000 r--s 0003d000 08:10 264903                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jsch-0.1.51.jar
+7fb954066000-7fb9540a6000 r--s 00277000 08:10 264939                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/bcprov-jdk15on-1.51.jar
+7fb9540a6000-7fb9540aa000 r--s 0001d000 08:10 264940                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/xbean-reflect-3.4.jar
+7fb9540aa000-7fb9540af000 r--s 0002a000 08:10 264948                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gson-2.2.4.jar
+7fb9540af000-7fb9540be000 r--s 000d9000 08:10 264930                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/ivy-2.2.0.jar
+7fb9540be000-7fb9540c2000 r--s 0001e000 08:10 264900                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-aether-impl-1.13.1.jar
+7fb9540c2000-7fb9540c5000 r--s 00027000 08:10 264904                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-model-3.0.4.jar
+7fb9540c5000-7fb9540c8000 r--s 0000b000 08:10 264894                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-artifact-3.0.4.jar
+7fb9540c8000-7fb9540cc000 r--s 0001e000 08:10 264872                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-aether-util-1.13.1.jar
+7fb9540cc000-7fb9540ce000 r--s 00007000 08:10 264951                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-wagon-http-shared4-2.4.jar
+7fb9540ce000-7fb9540db000 r--s 00083000 08:10 264866                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-core-3.0.4.jar
+7fb9540db000-7fb9540dd000 r--s 00003000 08:10 264929                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-aether-spi-1.13.1.jar
+7fb9540dd000-7fb9540df000 r--s 00009000 08:10 264916                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-settings-builder-3.0.4.jar
+7fb9540df000-7fb9540e3000 r--s 00014000 08:10 264886                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-aether-api-1.13.1.jar
+7fb9540e3000-7fb9540e4000 r--s 00002000 08:10 264941                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-wagon-http-2.4.jar
+7fb9540e4000-7fb9540eb000 r--s 00042000 08:10 264873                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-compat-3.0.4.jar
+7fb9540eb000-7fb9540ed000 r--s 00006000 08:10 264893                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-aether-connector-wagon-1.13.1.jar
+7fb9540ed000-7fb9540ef000 r--s 00000000 08:10 264877                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-component-annotations-1.5.5.jar
+7fb9540ef000-7fb9540f1000 r--s 00006000 08:10 264856                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-sec-dispatcher-1.3.jar
+7fb9540f1000-7fb9540f6000 r--s 00022000 08:10 264942                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-model-builder-3.0.4.jar
+7fb9540f6000-7fb9540f8000 r--s 0000b000 08:10 264907                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-plugin-api-3.0.4.jar
+7fb9540f8000-7fb9540fb000 r--s 0000a000 08:10 264853                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-classworlds-2.4.jar
+7fb9540fb000-7fb9540ff000 r--s 00035000 08:10 264952                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-utils-2.0.6.jar
+7fb9540ff000-7fb954101000 r--s 0000e000 08:10 264955                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-interpolation-1.14.jar
+7fb954101000-7fb954103000 r--s 00002000 08:10 264902                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-cipher-1.7.jar
+7fb954103000-7fb954105000 r--s 0000c000 08:10 264946                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-wagon-provider-api-2.4.jar
+7fb954105000-7fb954107000 r--s 0000d000 08:10 264957                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-aether-provider-3.0.4.jar
+7fb954107000-7fb95410f000 r--s 00031000 08:10 264927                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-plexus-container-default-1.5.5.jar
+7fb95410f000-7fb954110000 r--s 00007000 08:10 264906                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-repository-metadata-3.0.4.jar
+7fb954110000-7fb954111000 r--s 0000b000 08:10 264923                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/jarjar-maven-settings-3.0.4.jar
+7fb954111000-7fb95412b000 r--s 000c0000 08:10 264845                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/plugins/gradle-dependency-management-2.4.jar
+7fb95412b000-7fb95415c000 rw-p 00000000 00:00 0 
+7fb95415c000-7fb954173000 r-xp 00000000 fc:01 565564                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnet.so
+7fb954173000-7fb954372000 ---p 00017000 fc:01 565564                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnet.so
+7fb954372000-7fb954373000 rw-p 00016000 fc:01 565564                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnet.so
+7fb954373000-7fb954375000 r--s 00005000 08:10 264969                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-wrapper-2.4.jar
+7fb954375000-7fb95437f000 r--s 00032000 08:10 264804                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-tooling-api-2.4.jar
+7fb95437f000-7fb954381000 r--s 00002000 08:10 264808                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-open-api-2.4.jar
+7fb954381000-7fb954387000 r--s 00032000 08:10 264825                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jaxen-1.1.jar
+7fb954387000-7fb95438c000 r--s 00048000 08:10 264801                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/dom4j-1.6.1.jar
+7fb95438c000-7fb954397000 r--s 00059000 08:10 264806                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-ui-2.4.jar
+7fb954397000-7fb954399000 r--s 00008000 08:10 264813                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-resources-2.4.jar
+7fb954399000-7fb95439b000 r--s 00007000 08:10 264827                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/objenesis-1.2.jar
+7fb95439b000-7fb95439d000 r--s 00000000 08:10 264828                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/minlog-1.2.jar
+7fb95439d000-7fb95439f000 r--s 0000f000 08:10 264831                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/reflectasm-1.07-shaded.jar
+7fb95439f000-7fb9543a3000 r--s 00026000 08:10 264964                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/kryo-2.20.jar
+7fb9543a3000-7fb9543ac000 r--s 0003c000 08:10 264815                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-messaging-2.4.jar
+7fb9543ac000-7fb9543ad000 r--s 00003000 08:10 264834                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-freebsd-amd64-0.10.jar
+7fb9543ad000-7fb9543ae000 r--s 00003000 08:10 264820                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-freebsd-i386-0.10.jar
+7fb9543ae000-7fb9543af000 r--s 00005000 08:10 264823                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-windows-i386-0.10.jar
+7fb9543af000-7fb9543b0000 r--s 00005000 08:10 264798                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-windows-amd64-0.10.jar
+7fb9543b0000-7fb9543b1000 r--s 00003000 08:10 264800                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-linux-i386-0.10.jar
+7fb9543b1000-7fb9543b2000 r--s 00003000 08:10 264805                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-linux-amd64-0.10.jar
+7fb9543b2000-7fb9543b3000 r--s 00002000 08:10 264965                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-osx-amd64-0.10.jar
+7fb9543b3000-7fb9543b4000 r--s 00002000 08:10 264818                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-osx-i386-0.10.jar
+7fb9543b4000-7fb9543b6000 r--s 00008000 08:10 264817                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jansi-1.2.1.jar
+7fb9543b6000-7fb9543b9000 r--s 0000d000 08:10 264829                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/native-platform-0.10.jar
+7fb9543b9000-7fb9543bd000 r--s 000e4000 08:10 264799                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jna-3.2.7.jar
+7fb9543bd000-7fb9543bf000 r--s 00008000 08:10 264833                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-native-2.4.jar
+7fb9543bf000-7fb9543c1000 r--s 00005000 08:10 264819                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-cli-2.4.jar
+7fb9543c1000-7fb9543c3000 r--s 00005000 08:10 264803                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-model-groovy-2.4.jar
+7fb9543c3000-7fb9543c4000 r--s 00004000 08:10 264836                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-base-services-groovy-2.4.jar
+7fb9543c4000-7fb9543cc000 r--s 00040000 08:10 264824                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-model-core-2.4.jar
+7fb9543cc000-7fb9543cd000 r--s 00000000 08:10 264811                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-docs-2.4.jar
+7fb9543cd000-7fb9543cf000 r--s 00003000 08:10 264809                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jcl-over-slf4j-1.7.10.jar
+7fb9543cf000-7fb9543d0000 r--s 00005000 08:10 264966                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/log4j-over-slf4j-1.7.10.jar
+7fb9543d0000-7fb9543d1000 r--s 00000000 08:10 264822                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/javax.inject-1.jar
+7fb9543d1000-7fb9543d4000 r--s 0001b000 08:10 264807                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jarjar-1.3.jar
+7fb9543d4000-7fb9543d6000 r--s 00000000 08:10 264963                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jul-to-slf4j-1.7.10.jar
+7fb9543d6000-7fb9543d7000 r--s 00000000 08:10 264816                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/jcip-annotations-1.0.jar
+7fb9543d7000-7fb9543e5000 r--s 0007f000 08:10 264830                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/commons-collections-3.2.1.jar
+7fb9543e5000-7fb9543ea000 r--s 00036000 08:10 264821                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/asm-all-5.0.3.jar
+7fb9543ea000-7fb954456000 r--s 00689000 08:10 264967                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/groovy-all-2.3.10.jar
+7fb954456000-7fb95445b000 r--s 00041000 08:10 264802                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/commons-lang-2.6.jar
+7fb95445b000-7fb954483000 r--s 001cf000 08:10 264810                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/guava-jdk5-17.0.jar
+7fb954483000-7fb9544a1000 r--s 001cf000 08:10 264968                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/ant-1.9.4.jar
+7fb9544a1000-7fb9544d5000 r--s 001a4000 08:10 264812                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-core-2.4.jar
+7fb9544d5000-7fb9544d6000 ---p 00000000 00:00 0 
+7fb9544d6000-7fb9545d6000 rw-p 00000000 00:00 0                          [stack:7502]
+7fb9545d6000-7fb9545d9000 ---p 00000000 00:00 0 
+7fb9545d9000-7fb9546d7000 rw-p 00000000 00:00 0                          [stack:7501]
+7fb9546d7000-7fb9546da000 ---p 00000000 00:00 0 
+7fb9546da000-7fb9547d8000 rw-p 00000000 00:00 0                          [stack:7500]
+7fb9547d8000-7fb9547db000 ---p 00000000 00:00 0 
+7fb9547db000-7fb9548d9000 rw-p 00000000 00:00 0                          [stack:7499]
+7fb9548d9000-7fb9548dc000 ---p 00000000 00:00 0 
+7fb9548dc000-7fb9549da000 rw-p 00000000 00:00 0                          [stack:7498]
+7fb9549da000-7fb9550bc000 r--p 00000000 fc:01 532628                     /usr/lib/locale/locale-archive
+7fb9550bc000-7fb9550bf000 ---p 00000000 00:00 0 
+7fb9550bf000-7fb9551bd000 rw-p 00000000 00:00 0                          [stack:7497]
+7fb9551bd000-7fb9551c0000 ---p 00000000 00:00 0 
+7fb9551c0000-7fb9552be000 rw-p 00000000 00:00 0                          [stack:7496]
+7fb9552be000-7fb9552bf000 ---p 00000000 00:00 0 
+7fb9552bf000-7fb955d76000 rw-p 00000000 00:00 0                          [stack:7495]
+7fb955d76000-7fb955f36000 r--s 039fb000 fc:01 565606                     /usr/lib/jvm/java-7-oracle/jre/lib/rt.jar
+7fb955f36000-7fb9562af000 rw-p 00000000 00:00 0 
+7fb9562af000-7fb9562b0000 ---p 00000000 00:00 0 
+7fb9562b0000-7fb9563b0000 rw-p 00000000 00:00 0                          [stack:7494]
+7fb9563b0000-7fb9563b1000 ---p 00000000 00:00 0 
+7fb9563b1000-7fb9564bd000 rw-p 00000000 00:00 0                          [stack:7493]
+7fb9564bd000-7fb956531000 rw-p 00000000 00:00 0 
+7fb956531000-7fb95653c000 rw-p 00000000 00:00 0 
+7fb95653c000-7fb956687000 rw-p 00000000 00:00 0 
+7fb956687000-7fb956693000 rw-p 00000000 00:00 0 
+7fb956693000-7fb956707000 rw-p 00000000 00:00 0 
+7fb956707000-7fb956712000 rw-p 00000000 00:00 0 
+7fb956712000-7fb95685c000 rw-p 00000000 00:00 0 
+7fb95685c000-7fb956892000 rw-p 00000000 00:00 0 
+7fb956892000-7fb956907000 rw-p 00000000 00:00 0 
+7fb956907000-7fb956908000 rw-p 00000000 00:00 0 
+7fb956908000-7fb95691f000 r-xp 00000000 fc:01 565587                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libzip.so
+7fb95691f000-7fb956b1f000 ---p 00017000 fc:01 565587                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libzip.so
+7fb956b1f000-7fb956b20000 rw-p 00017000 fc:01 565587                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libzip.so
+7fb956b20000-7fb956b2b000 r-xp 00000000 fc:01 136226                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fb956b2b000-7fb956d2a000 ---p 0000b000 fc:01 136226                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fb956d2a000-7fb956d2b000 r--p 0000a000 fc:01 136226                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fb956d2b000-7fb956d2c000 rw-p 0000b000 fc:01 136226                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+7fb956d2c000-7fb956d37000 r-xp 00000000 fc:01 136236                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fb956d37000-7fb956f36000 ---p 0000b000 fc:01 136236                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fb956f36000-7fb956f37000 r--p 0000a000 fc:01 136236                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fb956f37000-7fb956f38000 rw-p 0000b000 fc:01 136236                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+7fb956f38000-7fb956f4f000 r-xp 00000000 fc:01 136220                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fb956f4f000-7fb95714e000 ---p 00017000 fc:01 136220                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fb95714e000-7fb95714f000 r--p 00016000 fc:01 136220                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fb95714f000-7fb957150000 rw-p 00017000 fc:01 136220                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+7fb957150000-7fb957152000 rw-p 00000000 00:00 0 
+7fb957152000-7fb95715b000 r-xp 00000000 fc:01 136222                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fb95715b000-7fb95735a000 ---p 00009000 fc:01 136222                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fb95735a000-7fb95735b000 r--p 00008000 fc:01 136222                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fb95735b000-7fb95735c000 rw-p 00009000 fc:01 136222                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+7fb95735c000-7fb957385000 r-xp 00000000 fc:01 565544                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libjava.so
+7fb957385000-7fb957585000 ---p 00029000 fc:01 565544                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libjava.so
+7fb957585000-7fb957587000 rw-p 00029000 fc:01 565544                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libjava.so
+7fb957587000-7fb957594000 r-xp 00000000 fc:01 565570                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libverify.so
+7fb957594000-7fb957793000 ---p 0000d000 fc:01 565570                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libverify.so
+7fb957793000-7fb957795000 rw-p 0000c000 fc:01 565570                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libverify.so
+7fb957795000-7fb95779c000 r-xp 00000000 fc:01 136279                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fb95779c000-7fb95799b000 ---p 00007000 fc:01 136279                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fb95799b000-7fb95799c000 r--p 00006000 fc:01 136279                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fb95799c000-7fb95799d000 rw-p 00007000 fc:01 136279                     /lib/x86_64-linux-gnu/librt-2.19.so
+7fb95799d000-7fb957aa2000 r-xp 00000000 fc:01 136201                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fb957aa2000-7fb957ca1000 ---p 00105000 fc:01 136201                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fb957ca1000-7fb957ca2000 r--p 00104000 fc:01 136201                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fb957ca2000-7fb957ca3000 rw-p 00105000 fc:01 136201                     /lib/x86_64-linux-gnu/libm-2.19.so
+7fb957ca3000-7fb958819000 r-xp 00000000 fc:01 565582                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/server/libjvm.so
+7fb958819000-7fb958a18000 ---p 00b76000 fc:01 565582                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/server/libjvm.so
+7fb958a18000-7fb958adc000 rw-p 00b75000 fc:01 565582                     /usr/lib/jvm/java-7-oracle/jre/lib/amd64/server/libjvm.so
+7fb958adc000-7fb958b1d000 rw-p 00000000 00:00 0 
+7fb958b1d000-7fb958cd8000 r-xp 00000000 fc:01 136151                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fb958cd8000-7fb958ed7000 ---p 001bb000 fc:01 136151                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fb958ed7000-7fb958edb000 r--p 001ba000 fc:01 136151                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fb958edb000-7fb958edd000 rw-p 001be000 fc:01 136151                     /lib/x86_64-linux-gnu/libc-2.19.so
+7fb958edd000-7fb958ee2000 rw-p 00000000 00:00 0 
+7fb958ee2000-7fb958ee5000 r-xp 00000000 fc:01 136168                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fb958ee5000-7fb9590e4000 ---p 00003000 fc:01 136168                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fb9590e4000-7fb9590e5000 r--p 00002000 fc:01 136168                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fb9590e5000-7fb9590e6000 rw-p 00003000 fc:01 136168                     /lib/x86_64-linux-gnu/libdl-2.19.so
+7fb9590e6000-7fb9590fb000 r-xp 00000000 fc:01 688718                     /usr/lib/jvm/java-7-oracle/lib/amd64/jli/libjli.so
+7fb9590fb000-7fb9592fa000 ---p 00015000 fc:01 688718                     /usr/lib/jvm/java-7-oracle/lib/amd64/jli/libjli.so
+7fb9592fa000-7fb9592fb000 rw-p 00014000 fc:01 688718                     /usr/lib/jvm/java-7-oracle/lib/amd64/jli/libjli.so
+7fb9592fb000-7fb959314000 r-xp 00000000 fc:01 136271                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fb959314000-7fb959513000 ---p 00019000 fc:01 136271                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fb959513000-7fb959514000 r--p 00018000 fc:01 136271                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fb959514000-7fb959515000 rw-p 00019000 fc:01 136271                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+7fb959515000-7fb959519000 rw-p 00000000 00:00 0 
+7fb959519000-7fb95953c000 r-xp 00000000 fc:01 136127                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fb95953c000-7fb959543000 r--s 00030000 08:10 264826                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-base-services-2.4.jar
+7fb959543000-7fb959566000 rw-p 00000000 00:00 0 
+7fb959566000-7fb95961c000 rw-p 00000000 00:00 0 
+7fb95961c000-7fb95961f000 ---p 00000000 00:00 0 
+7fb95961f000-7fb959721000 rw-p 00000000 00:00 0                          [stack:7492]
+7fb959721000-7fb959724000 r--s 00018000 08:10 264835                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/commons-io-1.4.jar
+7fb959724000-7fb959725000 r--s 00007000 08:10 264797                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/slf4j-api-1.7.10.jar
+7fb959725000-7fb959726000 r--s 00004000 08:10 264814                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/ant-launcher-1.9.4.jar
+7fb959726000-7fb95972f000 r--s 00040000 08:10 264832                     /media/ohrock/AndroidDevelopme/android-studio/gradle/gradle-2.4/lib/gradle-launcher-2.4.jar
+7fb95972f000-7fb959737000 rw-s 00000000 fc:01 302594                     /tmp/hsperfdata_ohrock/7490
+7fb959737000-7fb959738000 rw-p 00000000 00:00 0 
+7fb959738000-7fb959739000 ---p 00000000 00:00 0 
+7fb959739000-7fb95973b000 rw-p 00000000 00:00 0 
+7fb95973b000-7fb95973c000 r--p 00022000 fc:01 136127                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fb95973c000-7fb95973d000 rw-p 00023000 fc:01 136127                     /lib/x86_64-linux-gnu/ld-2.19.so
+7fb95973d000-7fb95973e000 rw-p 00000000 00:00 0 
+7ffec8ce4000-7ffec8d05000 rw-p 00000000 00:00 0                          [stack]
+7ffec8d89000-7ffec8d8b000 r--p 00000000 00:00 0                          [vvar]
+7ffec8d8b000-7ffec8d8d000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant 
+java_command: org.gradle.launcher.daemon.bootstrap.GradleDaemon 2.4 /home/ohrock/.gradle /home/ohrock/.gradle/daemon 10800000 ae275198-d751-4976-8eae-b5551141d46a -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Xmx1024m -Dfile.encoding=UTF-8 -Duser.country=GB -Duser.language=en -Duser.variant
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+LD_LIBRARY_PATH=./bin:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x9a3b20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x9a3b20], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x81e740], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x81ffb0], sa_mask[0]=0x00000004, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGTERM: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x8210d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:jessie/sid
+
+uname:Linux 3.19.0-30-generic #34~14.04.1-Ubuntu SMP Fri Oct 2 22:09:39 UTC 2015 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 7877, NOFILE 4096, AS infinity
+load average:1.76 0.53 0.44
+
+/proc/meminfo:
+MemTotal:        2049116 kB
+MemFree:           53744 kB
+MemAvailable:      15512 kB
+Buffers:             260 kB
+Cached:            30080 kB
+SwapCached:            0 kB
+Active:          1869340 kB
+Inactive:          22748 kB
+Active(anon):    1862892 kB
+Inactive(anon):    15388 kB
+Active(file):       6448 kB
+Inactive(file):     7360 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 4 kB
+Writeback:             0 kB
+AnonPages:       1862124 kB
+Mapped:            27072 kB
+Shmem:             16188 kB
+Slab:              48048 kB
+SReclaimable:      22352 kB
+SUnreclaim:        25696 kB
+KernelStack:        7984 kB
+PageTables:        30508 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1024556 kB
+Committed_AS:    4645568 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       78004 kB
+VmallocChunk:   34359623496 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    509952 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       79808 kB
+DirectMap2M:     2017280 kB
+
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 70 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz
+stepping	: 1
+microcode	: 0x19
+cpu MHz		: 2194.918
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 70
+model name	: Intel(R) Core(TM) i7-4770HQ CPU @ 2.20GHz
+stepping	: 1
+microcode	: 0x19
+cpu MHz		: 2194.918
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm
+bugs		:
+bogomips	: 4389.83
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 2049116k(53496k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.80-b11) for linux-amd64 JRE (1.7.0_80-b15), built on Apr 10 2015 19:53:14 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sat Oct 24 23:10:36 2015
+elapsed time: 14 seconds
+
